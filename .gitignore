@@ -1,0 +1,33 @@
+# agentview — .gitignore
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+build/
+dist/
+*.spec.bak
+
+# 시크릿·환경
+.env
+.env.*
+env.js
+
+# 스크래치·임시
+.scratch/
+*.tmp
+*.bak
+
+# 로컬 상태 (세이브·이벤트는 %APPDATA%/%LOCALAPPDATA%에 있지만 혹시 루트에 생기면)
+save.json
+events/
+install_state.json
+
+# Claude Code 로컬 설정
+.claude/settings.local.json
+
+# OS
+Thumbs.db
+Desktop.ini

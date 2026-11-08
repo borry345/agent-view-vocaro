@@ -1,0 +1,2 @@
+# 개행을 git이 건드리지 않는다. CRLF/LF는 파일별로 프로젝트가 직접 관리한다(RUN_LOG.md 등 CRLF 필수).
+* -text
