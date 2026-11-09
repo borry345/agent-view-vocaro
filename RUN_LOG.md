@@ -259,3 +259,40 @@ PM 판정(사용자 확인 전 미디스패치): 수정 필요 10건 전부 수�
 - plan-review 비용표에 TECH 라운드 행 추가. PLANNING G10 상태 갱신.
 - **기획 문서 확정 상태**: PRD(동결) / SPEC 7회차 699줄·358 / TECH_SPEC 3회차 1296줄·TA 99. 추가 독립 검토 없음(1라운드 종료, 남은 항목 전부 비차단).
 - 다음: 구현 디스패치 준비 — (1) 첫 git 커밋(하네스+기획 문서, 승인 게이트, 사용자 결정) + `.gitignore`, (2) `dispatch-implementer`·`baseline-handoff` 스킬로 I1 프롬프트 작성, (3) 통합 관문 M2(Windows 훅 명령 실행) 첫 실측 계획.
+
+### 2026-11-09 — 저장소 재생성, 첫 커밋, 원격 푸시
+
+- 사용자: 컴퓨터 간 이사(압축)로 `.git`이 빠짐. 10-22 기록상 원래 저장소도 커밋 0개·원격 없음이라 손실 없음. 사용자 승인("git 커밋 진행해주세요 … 바로 push까지")으로 `git init -b main`.
+- `.gitignore`(Python 산출물, `.env*`·`env.js`, `.scratch/`, 로컬 상태 파일, `settings.local.json`) + `.gitattributes`(`* -text`: git이 개행을 건드리지 않음, RUN_LOG CRLF 보호).
+- pre-push-check: 스테이징 금지 대상 0, 디스크 스크래치 없음, 시크릿 스캔 히트는 `credentials.json` 파일명 언급 3곳(절대 읽지 않음 규칙 문구)뿐 — 값 없음.
+- 첫 커밋 `c92b7b7` 26파일. 원격 `origin` = https://github.com/borry345/agent-view-vocaro.git (사용자 신규 생성, 비어 있음 확인 후 최초 푸시). 푸시 후 트리 검사: 금지 대상 없음.
+- 이제 `.claude/settings.json` 승인 게이트·체크포인트 스크립트가 git 위에서 동작한다. 다음: `dispatch-implementer`·`baseline-handoff`로 I1(기반 모듈) 구현자 프롬프트 작성.
+
+### 2026-11-09 — 세션 분리(기획 → 구현). 다음 세션 시작점
+
+**끊는 이유**: ORCHESTRATION "세션 분리" 기준(기능 10·수용 기준 100 이상) 충족 — 기능 20·수용 기준 358·TA 99. 이 세션은 압축 1회 경험. 사용자 동의 2026-11-09.
+
+**끊기 전 점검**: ① 결정 전부 문서에 있음(PLANNING 상태 + RUN_LOG 이유, SPEC 4절 미확정 없음) ② 다음 할 일·입력 문서 = 이 항목 ③ 대기 중인 사용자 결정 없음 ④ 미커밋 작업물 = 이 항목을 포함한 커밋으로 정리(아래).
+
+**현재 상태**: 기획 종결. PRD.md(동결) / SPEC.md 7회차(699줄, F1~F20, 수용 기준 358) / TECH_SPEC.md 3회차(1296줄, TA 99, R1~R20, M1~M13, 열림 C4·C7, 기록용 C8·C9·C12 — 전부 비차단). 저장소 `main`, 원격 origin = github.com/borry345/agent-view-vocaro. 프로젝트 코드는 아직 0줄.
+
+**다음 세션 PM 읽기 순서**: CLAUDE.md → HANDOFF.md → ORCHESTRATION.md → CODING_GUIDE.md → RUN_LOG.md(이 항목부터 거꾸로 11-07까지) → PLANNING.md 0절·G절 → SPEC.md(3절 F 표, 부록 "TECH_SPEC 위임 목록") → TECH_SPEC.md 5·5a·5b·5c·6절(구현 디스패치에 직접 쓰는 절). SPEC·TECH 본문 전체는 필요한 기능만 펼쳐 읽는다.
+
+**다음 할 일(순서)**:
+0. 세션 점검: 모델이 "모델 지정 규칙" PM 기준인지, `git status` 깨끗한지, `.claude/settings.json` 게이트가 켜졌는지(저장소 있음).
+1. I1 디스패치 — `dispatch-implementer` + `baseline-handoff` 스킬로 프롬프트 작성, **사용자에게 보여주고** 디스패치. 범위 = TECH 5c의 I1 소유 파일(공유 타입 5개·errors·clock·paths·loader 골격·데이터 기본 파일·pyproject·requirements·`scripts/check_imports.py`). 금지 import(core에 PySide6 금지, hook_writer 표준 라이브러리 전용, 네트워크 모듈 전면 금지 F15)를 정적 검사로 강제.
+2. I2(훅·수집)와 I3(세션·배정) 병렬 — I1 타입 파일 고정 뒤. R12: 원본 JSON은 I2만 만진다.
+3. I4(게임 규칙) — I3 `Assigner` 인터페이스 고정 뒤.
+4. I5(UI) — 전 계약 고정 뒤(band 그리기·플레이스홀더 스프라이트는 1과 병렬 가능).
+5. team-lead 통합 → tester(비용 통제 절 준수) → 실측 M1~M13. **첫 관문 M2**(Windows에서 Claude Code 훅 명령이 `agentview-hook.exe`를 실제로 실행하는지, 비ASCII 프로필·설치 경로, 앱 삭제 뒤 훅 잔존 증상). M2 실패면 F16 설계로 되돌아온다.
+6. 독립 검증(tester independent mode)은 기본 꺼짐 — 켤지는 통합 뒤 사용자 결정(후보 사유: 설정 파일 병합 F16, 세이브 손실 가능 F14).
+
+**구현 단계 규칙 요약(원본은 ORCHESTRATION·TECH)**: 파일 소유권은 TECH 5c, 공유 규칙 R1~R20은 5a. 구현자 스크래치는 프로젝트 밖 또는 `.scratch/`(.gitignore 등록됨). 3-strikes. 체크포인트 커밋은 `scripts/checkpoint-commit.sh`(allow), 의미있는 커밋·푸시는 사용자 상의 후 PM이 직접(ask 게이트). 구현자·team-lead는 RUN_LOG·PLANNING·PRD·SPEC·TECH·HANDOFF를 고치지 않는다. 모든 문서는 CRLF — 에이전트가 Write로 새 파일을 만들면 PM이 바이트 감사(`eol-audit`). `~/.claude/.credentials.json`은 어떤 에이전트도 읽지 않는다. 원본 트랜스크립트·`~/.claude/settings.json`을 저장소에 넣지 않는다.
+
+**참고 자료 위치**:
+- 저장소 안으로 옮김(이 커밋): `docs/reference/credits_draft.md`(캐릭터 크레딧 초안, F15·README 데이터 입력), `docs/reference/transcript_jsonl_schema.json`(실제 트랜스크립트의 내용 없는 스키마 덤프, I2 입력), `scripts/spec_crlf_diff.py`(PM용 F-ID 대조·CRLF 변환).
+- 스크래치패드(임시 폴더, 지워질 수 있음, 커밋하지 않음): `C:/Users/SSAFY/AppData/Local/Temp/claude/C--Users-SSAFY-Desktop-borry-agentview-agentview/45526821-722f-43ee-8a9e-688f0cffaa68/scratchpad` — `pokepet_dump.json`(참고 앱 PokePet 정적 덤프 1.3MB, 제3자 코드라 미커밋), `una/`(우나 가이드라인 PDF·추출문), SPEC/TECH 회차별 백업, 검토 지시서(`spec_revision_*.md`, `techspec_revision_*.md`), 해시 스냅샷. 새 세션에서 PokePet 참고가 필요하면 TECH 2절 요약으로 충분하고, 원본이 필요하면 이 경로가 살아 있는지 먼저 확인.
+
+**세션 환경 관찰(새 PM 참고)**: 이 세션 에이전트 목록에 `tester`가 네이티브로 뜨지 않음(10-22와 동일) — `general-purpose` + "tester.md를 따르라" + `model` 명시로 우회. spec-writer·tech-spec-writer는 Bash·Grep이 없어 CRLF 확인·변환은 PM 몫. 서브에이전트는 전부 백그라운드로 돌고 hand-back 메시지로 보고가 온다.
+
+**이 세션 PM 실수(재발 방지)**: ① 검토 직후 PM 기본값을 사용자 확인 없이 spec-writer에 디스패치(11-07, TaskStop으로 회수) ② grep 패턴을 "이후의 턴"으로만 잡아 "뒤의 턴" 1곳 누락(11-09, 작성자 보고로 발견) ③ SPEC·TECH 확정 직후 세션 분리 제안을 빠뜨리고 구현 프롬프트로 넘어가려 함(11-09, 사용자 질문으로 발견).

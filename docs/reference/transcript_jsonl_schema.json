@@ -1,0 +1,439 @@
+{
+ "9498e814-03fa-4494-9d18-a6f43de7d947.jsonl": {
+  "records": 12,
+  "types": {
+   "mode": 1,
+   "permission-mode": 1,
+   "file-history-snapshot": 2,
+   "user": 6,
+   "last-prompt": 1,
+   "cost-state": 1
+  },
+  "keys_by_type": {
+   "mode": [
+    "mode",
+    "sessionId",
+    "type"
+   ],
+   "permission-mode": [
+    "permissionMode",
+    "sessionId",
+    "type"
+   ],
+   "file-history-snapshot": [
+    "isSnapshotUpdate",
+    "messageId",
+    "snapshot",
+    "type"
+   ],
+   "user": [
+    "cwd",
+    "entrypoint",
+    "gitBranch",
+    "isMeta",
+    "isSidechain",
+    "message",
+    "parentUuid",
+    "promptId",
+    "sessionId",
+    "sessionKind",
+    "timestamp",
+    "type",
+    "userType",
+    "uuid",
+    "version"
+   ],
+   "last-prompt": [
+    "leafUuid",
+    "sessionId",
+    "type"
+   ],
+   "cost-state": [
+    "hasUnknownModelCost",
+    "modelUsage",
+    "sessionId",
+    "startTime",
+    "totalAPIDuration",
+    "totalAPIDurationWithoutRetries",
+    "totalCostUSD",
+    "totalDuration",
+    "totalLinesAdded",
+    "totalLinesRemoved",
+    "totalToolDuration",
+    "type"
+   ]
+  },
+  "usage_keys": [],
+  "stop_reasons": {},
+  "content_block_types": {},
+  "tool_names_top": [],
+  "records_with_parentUuid": 5,
+  "session_level_fields_seen": [
+   "cwd",
+   "gitBranch",
+   "isSidechain",
+   "sessionId",
+   "version"
+  ],
+  "size_bytes": 4737
+ },
+ "45526821-722f-43ee-8a9e-688f0cffaa68.jsonl": {
+  "records": 3650,
+  "types": {
+   "mode": 150,
+   "permission-mode": 150,
+   "file-history-snapshot": 109,
+   "user": 328,
+   "atis-latch": 150,
+   "attachment": 594,
+   "last-prompt": 151,
+   "ai-title": 149,
+   "assistant": 547,
+   "custom-title": 148,
+   "agent-name": 148,
+   "bridge-session": 150,
+   "system": 170,
+   "file-history-delta": 5,
+   "queue-operation": 212,
+   "cost-state": 2,
+   "tools-used": 12,
+   "api-request-shape": 4,
+   "api-request-blob": 286,
+   "api-request": 185
+  },
+  "keys_by_type": {
+   "mode": [
+    "mode",
+    "sessionId",
+    "type"
+   ],
+   "permission-mode": [
+    "permissionMode",
+    "sessionId",
+    "type"
+   ],
+   "file-history-snapshot": [
+    "isSnapshotUpdate",
+    "messageId",
+    "snapshot",
+    "type"
+   ],
+   "user": [
+    "cwd",
+    "entrypoint",
+    "gitBranch",
+    "interruptedMessageId",
+    "isCompactSummary",
+    "isMeta",
+    "isSidechain",
+    "isVisibleInTranscriptOnly",
+    "message",
+    "origin",
+    "parentUuid",
+    "permissionDecision",
+    "permissionMode",
+    "promptId",
+    "promptSource",
+    "queueSkipAttachments",
+    "queueSkipSlashCommands",
+    "sandboxed",
+    "serverClassifierContext",
+    "sessionId",
+    "session_id",
+    "slug",
+    "sourceToolAssistantUUID",
+    "sourceToolUseID",
+    "timestamp",
+    "toolDenialKind",
+    "toolUseResult",
+    "turnCompanion",
+    "turnOrigin",
+    "turnPosition",
+    "type",
+    "userType",
+    "uuid",
+    "version"
+   ],
+   "atis-latch": [
+    "atis",
+    "sessionId",
+    "type"
+   ],
+   "attachment": [
+    "attachment",
+    "cwd",
+    "entrypoint",
+    "gitBranch",
+    "isSidechain",
+    "parentUuid",
+    "rendered",
+    "renderedBesideToolResult",
+    "renderedInHumanTurn",
+    "renderedRole",
+    "sessionId",
+    "session_id",
+    "slug",
+    "timestamp",
+    "type",
+    "userType",
+    "uuid",
+    "version"
+   ],
+   "last-prompt": [
+    "lastPrompt",
+    "leafUuid",
+    "sessionId",
+    "type"
+   ],
+   "ai-title": [
+    "aiTitle",
+    "sessionId",
+    "type"
+   ],
+   "assistant": [
+    "advisorModel",
+    "apiBlockIndex",
+    "attributionMcpServer",
+    "attributionMcpTool",
+    "attributionSkill",
+    "cwd",
+    "effort",
+    "entrypoint",
+    "gitBranch",
+    "isSidechain",
+    "message",
+    "parentUuid",
+    "perTurnEffort",
+    "requestId",
+    "requestRef",
+    "requestedModel",
+    "serverClassifierRequest",
+    "sessionId",
+    "session_id",
+    "slug",
+    "thinkingDisplay",
+    "thinkingDurationMs",
+    "timestamp",
+    "type",
+    "userType",
+    "uuid",
+    "version",
+    "wireIngestContext",
+    "wireToolInputs"
+   ],
+   "custom-title": [
+    "customTitle",
+    "sessionId",
+    "type"
+   ],
+   "agent-name": [
+    "agentName",
+    "sessionId",
+    "type"
+   ],
+   "bridge-session": [
+    "bridgeSessionId",
+    "lastSequenceNum",
+    "ownerAccountUuid",
+    "ownerOrganizationUuid",
+    "sessionId",
+    "type"
+   ],
+   "system": [
+    "compactMetadata",
+    "content",
+    "cwd",
+    "durationMs",
+    "entrypoint",
+    "gitBranch",
+    "hasOutput",
+    "hookAdditionalContext",
+    "hookCount",
+    "hookErrors",
+    "hookInfos",
+    "isMeta",
+    "isSidechain",
+    "level",
+    "logicalParentUuid",
+    "messageCount",
+    "parentUuid",
+    "pendingBackgroundAgentCount",
+    "preventedContinuation",
+    "sessionId",
+    "session_id",
+    "slug",
+    "stopReason",
+    "subtype",
+    "timestamp",
+    "toolUseID",
+    "type",
+    "url",
+    "userType",
+    "uuid",
+    "version"
+   ],
+   "file-history-delta": [
+    "backup",
+    "messageId",
+    "snapshotMessageId",
+    "timestamp",
+    "trackingPath",
+    "type"
+   ],
+   "queue-operation": [
+    "commandUuid",
+    "content",
+    "deliveryId",
+    "operation",
+    "reason",
+    "sessionId",
+    "timestamp",
+    "type"
+   ],
+   "cost-state": [
+    "hasUnknownModelCost",
+    "modelUsage",
+    "sessionId",
+    "startTime",
+    "totalAPIDuration",
+    "totalAPIDurationWithoutRetries",
+    "totalCostUSD",
+    "totalDuration",
+    "totalLinesAdded",
+    "totalLinesRemoved",
+    "totalToolDuration",
+    "type"
+   ],
+   "tools-used": [
+    "sessionId",
+    "tools",
+    "type"
+   ],
+   "api-request-shape": [
+    "sessionId",
+    "shape",
+    "shapeHash",
+    "timestamp",
+    "type",
+    "version"
+   ],
+   "api-request-blob": [
+    "hash",
+    "message",
+    "sessionId",
+    "type"
+   ],
+   "api-request": [
+    "base",
+    "cacheControl",
+    "id",
+    "keep",
+    "params",
+    "querySource",
+    "requestDigest",
+    "sessionId",
+    "shapeHash",
+    "tail",
+    "timestamp",
+    "type",
+    "version"
+   ]
+  },
+  "usage_keys": [
+   "cache_creation",
+   "cache_creation_input_tokens",
+   "cache_read_input_tokens",
+   "fallback_credit",
+   "inference_geo",
+   "input_tokens",
+   "iterations",
+   "output_tokens",
+   "output_tokens_details",
+   "server_tool_use",
+   "service_tier",
+   "speed"
+  ],
+  "stop_reasons": {
+   "tool_use": 355,
+   "end_turn": 189
+  },
+  "content_block_types": {
+   "thinking": 238,
+   "text": 300,
+   "tool_use": 250,
+   "tool_result": 247,
+   "tool_addition": 12
+  },
+  "tool_names_top": [
+   [
+    "Bash",
+    181
+   ],
+   [
+    "WebSearch",
+    16
+   ],
+   [
+    "Agent",
+    12
+   ],
+   [
+    "ToolSearch",
+    11
+   ],
+   [
+    "SendMessage",
+    10
+   ],
+   [
+    "Write",
+    5
+   ],
+   [
+    "Skill",
+    4
+   ],
+   [
+    "AskUserQuestion",
+    3
+   ],
+   [
+    "Grep",
+    3
+   ],
+   [
+    "Read",
+    2
+   ],
+   [
+    "TaskStop",
+    2
+   ],
+   [
+    "mcp__openpets__openpets_say",
+    1
+   ]
+  ],
+  "records_with_parentUuid": 1635,
+  "session_level_fields_seen": [
+   "cwd",
+   "gitBranch",
+   "isSidechain",
+   "requestId",
+   "sessionId",
+   "version"
+  ],
+  "size_bytes": 8155001
+ },
+ "_subagent_files_example": [
+  "45526821-722f-43ee-8a9e-688f0cffaa68\\subagents\\agent-a156d7fb8f2775287.jsonl",
+  "45526821-722f-43ee-8a9e-688f0cffaa68\\subagents\\agent-a2105508db62625cd.jsonl",
+  "45526821-722f-43ee-8a9e-688f0cffaa68\\subagents\\agent-a39fdd77f494dd340.jsonl",
+  "45526821-722f-43ee-8a9e-688f0cffaa68\\subagents\\agent-a4ecb0b1b1e40170c.jsonl",
+  "45526821-722f-43ee-8a9e-688f0cffaa68\\subagents\\agent-a960e12315dcef457.jsonl"
+ ],
+ "_dirs": [
+  ".",
+  "45526821-722f-43ee-8a9e-688f0cffaa68\\subagents"
+ ]
+}
